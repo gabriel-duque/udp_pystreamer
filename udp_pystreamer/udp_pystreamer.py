@@ -11,7 +11,7 @@ import sys
 from typing import NoReturn
 
 
-def __info(msg: str) -> None:
+def _info(msg: str) -> None:
     """Log a message to stdout.
 
     :param msg: message to print
@@ -22,7 +22,7 @@ def __info(msg: str) -> None:
     print(f"{green}*{reset} {msg}")
 
 
-def __die(msg: str) -> None:
+def _die(msg: str) -> None:
     """Log an error to stderr.
 
     :param msg: message to print
@@ -62,8 +62,8 @@ class UDPFileStreamer:
 
         CHUNK_SIZE: int = 1024
         if not os.access(file_name, os.R_OK):
-            __die(
-                f"udp_streamer: {file_name} does not exist or is not readable."
+            _die(
+                f"udp_pystreamer: {file_name} does not exist or is not readable."
             )
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
@@ -79,9 +79,11 @@ class UDPFileStreamer:
                                 break
                         sock.sendall(chunk)
         except socket.error as e:
-            __die("error during socket handling: {e.strerror}")
+            _die(f"udp_pystreamer: error during socket handling: {e.strerror}")
         except OSError as e:
-            __die(f"{os.path.basename(sys.argv[0])}: {e.strerror}")
+            _die(
+                f"udp_pystreamer: {os.path.basename(sys.argv[0])}: {e.strerror}"
+            )
 
 
 def __main() -> None:
