@@ -26,17 +26,17 @@ The usage for the tool is as follows:
 
     usage: udp_pystreamer [-h] -t TARGET -p PORT [-l] file
     
-    stream a file over a UDP connection.
+    stream a file over a UDP connection
     
     positional arguments:
-      file                  file we want to send.
+      file                  file we want to send
     
     optional arguments:
       -h, --help            show this help message and exit
       -t TARGET, --target TARGET
-                            IP address or hostname of the target.
-      -p PORT, --port PORT  port to send to file to.
-      -l, --loop            send the file indefinitely in a loop (Default: False).
+                            IP address or hostname of the target
+      -p PORT, --port PORT  port to send to file to
+      -l, --loop            send the file indefinitely in a loop (Default: False)
 
 Documentation
 -------------

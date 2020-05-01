@@ -87,29 +87,29 @@ class UDPFileStreamer:
 def __main() -> None:
     """Parse arguments and stream our file."""
     parser: argparse.ArgumentParser = argparse.ArgumentParser(
-        description="stream a file over a UDP connection."
+        description="stream a file over a UDP connection"
     )
-    parser.add_argument("file", help="file we want to send.")
+    parser.add_argument("file", help="file we want to send")
     parser.add_argument(
         "-t",
         "--target",
         type=str,
         required=True,
-        help="IP address or hostname of the target.",
+        help="IP address or hostname of the target",
     )
     parser.add_argument(
         "-p",
         "--port",
         type=int,
         required=True,
-        help="port to send to file to.",
+        help="port to send to file to",
     )
     parser.add_argument(
         "-l",
         "--loop",
         action="store_true",
         default=False,
-        help="send the file indefinitely in a loop (Default: False).",
+        help="send the file indefinitely in a loop (default: False)",
     )
     args: argparse.Namespace = parser.parse_args()
     streamer: UDPFileStreamer = UDPFileStreamer(args.target, args.port)
