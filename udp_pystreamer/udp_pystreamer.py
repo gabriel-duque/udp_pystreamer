@@ -35,6 +35,7 @@ def __die(msg: str) -> None:
 
 
 class UDPFileStreamer:
+    """Representation of our UDP capable file streamer."""
     ip: str
     port: int
 
